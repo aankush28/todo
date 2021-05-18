@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX7hhSOTmNcOV0iphLz5yEjCPqRlk-S9tu1w&usqp=CAU">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Todo list</title>
+</head>
+<body>
+<div class="main">
+    
+    <h1>TO-D0 List</h1>
+    <p>1. cut to Word click one time</p>
+    <p>2. delete to word click 2 Time</p>
+    <div class="contaner">
+        <input type="text" id="inputField" placeholder="What's your" required><button id="assTODO" onclick="on()">Add +</button>
+        <div class="to_dos" id="toDoContainer">
+        
+        </div>
+    </div>
+</div>
+<script>
+    let addToDoButton =document.getElementById('addToDo');
+    let toDoContainer =document.getElementById('toDoContainer');
+    let inputField=document.getElementById('inputField');
+
+   function on(){
+        var paragraph = document.createElement('li');
+        paragraph.classList.add('paragraph-styling');
+        paragraph.innerText =inputField.value;
+        toDoContainer.appendChild(paragraph);
+        inputField.value="";
+        paragraph.addEventListener('click',function(){
+            paragraph.style.textDecoration="line-through"
+        })
+        paragraph.addEventListener('dblclick',function(){
+            toDoContainer.removeChild(paragraph);
+        })
+    }
+</script>
+</body>
+</html>
